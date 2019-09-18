@@ -20,7 +20,7 @@ app.get("/api", function(request, response) {
 
 app.get('*', function(request, response) {
     log("GET *");
-    response.sendFile('client/public/index.html');
+    response.sendFile(express.static(__dirname + 'client/public/index.html'));
 });
 
 app.listen(PORT, () => {
