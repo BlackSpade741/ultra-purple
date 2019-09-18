@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static('/home/site/wwwroot'));
 
 app.get("/api", function(request, response) {
     log("GET /api");
@@ -20,7 +20,7 @@ app.get("/api", function(request, response) {
 
 app.get('*', function(request, response) {
     log("GET *");
-    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+    response.sendFile('client/public/index.html');
 });
 
 app.listen(PORT, () => {
